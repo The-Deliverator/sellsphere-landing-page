@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SellSphere</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: linear-gradient(to bottom, #000, #111);
+      color: #e5e5e5;
+    }
+    a {
+      color: #0ff;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+    a:hover { color: #00f7ff; }
+
+    header {
+      background: #0a0a0a;
+      padding: 1.5rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #333;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .burger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+    }
+
+    .burger div {
+      width: 25px;
+      height: 3px;
+      background-color: #0ff;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        position: absolute;
+        top: 80px;
+        right: 0;
+        background: #0a0a0a;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        padding: 1rem 2rem;
+        display: none;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .burger {
+        display: flex;
+      }
+    }
+
+    .hero {
+      text-align: center;
+      padding: 6rem 2rem;
+      background: radial-gradient(circle at center, #1a1a1a, #000);
+    }
+    .hero h1 {
+      font-size: 3.5rem;
+      color: #0ff;
+      letter-spacing: 2px;
+    }
+    .hero p {
+      font-size: 1.2rem;
+      margin: 1rem auto 2rem;
+      max-width: 600px;
+      color: #aaa;
+    }
+    .launch-btn {
+      background: #0ff;
+      color: #000;
+      padding: 0.9rem 2rem;
+      border: none;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+    .launch-btn:hover {
+      background: #00cfcf;
+    }
+
+    .features {
+      padding: 4rem 2rem;
+      background: #121212;
+    }
+    .features h2 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 3rem;
+      color: #0ff;
+    }
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+    .feature-card {
+      background: #1e1e1e;
+      border-radius: 10px;
+      padding: 2rem;
+      text-align: center;
+      box-shadow: 0 0 15px rgba(0,255,255,0.1);
+      transition: transform 0.3s ease;
+    }
+    .feature-card:hover {
+      transform: translateY(-5px);
+    }
+    .feature-card img {
+      width: 100%;
+      max-height: 200px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+    }
+
+    .about {
+      padding: 4rem 2rem;
+      background: #0f0f0f;
+    }
+    .about h2 {
+      text-align: center;
+      font-size: 2rem;
+      color: #0ff;
+      margin-bottom: 2rem;
+    }
+    .about p {
+      max-width: 800px;
+      margin: 0 auto 2rem;
+      text-align: center;
+      color: #aaa;
+    }
+    .team-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    footer {
+      background: #050505;
+      padding: 2rem;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #666;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div><strong>SellSphere</strong></div>
+    <div class="burger" onclick="document.querySelector('.nav-links').classList.toggle('active')">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+    <nav class="nav-links">
+      <a href="#features">Features</a>
+      <a href="#about">About</a>
+      <a href="#launch">Launch</a>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <h1>SellSphere</h1>
+    <p>The ultimate platform for creators to sell digital content. Powered by creators, built for digital commerce.</p>
+    <a id="launch" href="https://sellsphere-frontend.onrender.com">
+      <button class="launch-btn">Enter SellSphere</button>
+    </a>
+  </section>
+
+  <!-- Features -->
+  <section class="features" id="features">
+    <h2>Core Features</h2>
+    <div class="feature-grid">
+      <div class="feature-card">
+        <img src="dashboard.png" alt="Product Hosting">
+        <h3>Digital Product Upload</h3>
+        <p>Upload and manage your eBooks, software, music, or course files seamlessly.</p>
+      </div>
+      <div class="feature-card">
+        <img src="products.png" alt="User Marketplace">
+        <h3>Creator Storefronts</h3>
+        <p>Each creator gets a personalized public store to showcase and sell their work.</p>
+      </div>
+      <div class="feature-card">
+        <img src="updated.png" alt="Secure Checkout">
+        <h3>Product Update</h3>
+        <p>Sellers can update their products or even edit them to their liking as soon as their posted.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="about" id="about">
+    <h2>What Inspired SellSphere</h2>
+    <p>
+      SellSphere was born from a frustration – creators pour energy into building products, but the selling side feels like a maze. 
+      I wanted to build a platform that’s lightweight, creator-focused, and super easy to launch. 
+      It started as a dream to empower digital hustlers and became a passion project for creators, by creators. 
+      This is a portfolio project developed during my ALX Software Engineering journey.
+    </p>
+    <div class="team-links">
+      <a href="https://github.com/The-Deliverator" target="_blank">GitHub</a>
+      <a href="www.linkedin.com/in/davie-longwe-a48619262" target="_blank">LinkedIn</a>
+      <a href="https://x.com/DavieALX?t=6ForbScrBmSjfB9mSi1wxw&s=09" target="_blank">Twitter</a>
+      <a href="https://github.com/The-Deliverator/sellsphere" target="_blank">Project Repo</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    © 2025 SellSphere – For creators. From creators. 💿🖤
+  </footer>
+
+</body>
+</html>
